@@ -1,4 +1,46 @@
 #
+select
+distinct
+from 
+join
+where
+group
+having
+limit offset
+order
+
+from
+join
+where
+group
+having
+select 
+distinct
+order
+limit offset
+
+
+# == Schema Information
+#
+# Table name: nobels
+#
+#  yr          :integer
+#  subject     :string
+#  winner      :string
+
+which year physic yes , no chem
+
+select distinct yr
+from nobels
+where subject = 'physic' AND yr NOT IN (
+    select yr
+    from nobels
+    where subject = 'chem'
+)
+
+
+
+
 Describe the differences between a primary key and a foreign key.
 
 Question Three:
