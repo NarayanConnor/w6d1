@@ -15,6 +15,25 @@ Given the following table write all the `belongs_to` and `has_many` **and**
 #  id   :integer          not null, primary key
 #  name :string           not null
 
+has_many :appointments
+primary_key: :id
+foreign_key: :physician_id
+class_name: :Appointment
+
+has_many :general_pats
+through: :appointments
+souce: :patient
+
+has_many :prime_phyc
+primary_key: :id
+foreign_key: :primary_physician_id
+class_name: :Patient
+
+has_many :prime_apoints
+through: :prime_phyc
+source: :appointments
+
+
 
 # Table name: appointments
 #
@@ -22,12 +41,31 @@ Given the following table write all the `belongs_to` and `has_many` **and**
 #  physician_id :integer   not null
 #  patient_id :integer     not null
 
+belongs_to :physician,
+primary_key: :id,
+foreign_key: :physician_id,
+class_name: :Physician
+
+belongs_to :patient,
+primary_key: :id,
+foreign_key: :patient_id,
+class_name: :Patient
 
 # Table name: patients
 #
 #  id   :integer           not null, primary key
 #  name :string            not null
 #  primary_physician_id :integer
+
+has_many appointments
+primary_key: :id,
+foreign_key: :patient_id
+class_name: :Patient
+
+belongs_to :primary_physician
+primary_key: :id
+foreign_key: :patient_id
+class_name: :Patient
 
 
 
