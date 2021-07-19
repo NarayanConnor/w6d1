@@ -1,0 +1,15 @@
+two tables 
+employ & defpartment
+employ can belong to a single department
+find all employs who work for a given defpartment
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+select name
+from employ
+join department
+on employ.department_id
+where defpartment_name = name
+
+select name
+from employ
+where employ.department_id is null
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
