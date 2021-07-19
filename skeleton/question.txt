@@ -1,4 +1,59 @@
 #
+# == Schema Information
+#
+# Table name: user
+#
+#  id   :integer          not null, primary key
+#  name :string           not null
+
+
+has_many :gamecreateds
+class_name: :Game,
+foreign_key: :game_maker_id
+primary_key: :id
+optional: :true
+
+has_many :scores
+class_name: :Score,
+foreign_key: :user_id
+primary_key: :id
+
+
+# Table name: score
+#
+#  id   :integer           not null, primary key
+#  number :integer         not null
+#  user_id :integer        not null
+#  game_id :integer        not null
+
+
+belongs_to :thatgame
+class_name: :Game,
+foreign_key: :game_id
+primary_key: :id,
+
+belongs_to :player
+class_name: :User,
+foreign_key: :user_id
+primary_key: :id
+
+
+# Table name: game
+#
+#  id   :integer           not null, primary key
+#  name :string            not null
+#  game_maker_id :integer  not null
+
+has_many :scores
+class_name: :Score,
+foreign_key: :game_id
+primary_key: :id
+
+belongs_to :gameMaker
+class_name: :User,
+foreign_key: :game_maker_id
+primary_key: :id
+
 select
 distinct
 from 
