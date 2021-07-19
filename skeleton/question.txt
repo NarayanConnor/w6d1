@@ -1,4 +1,38 @@
+#
+Describe the differences between a primary key and a foreign key.
+
+Question Three:
+
+Given the following table write all the `belongs_to` and `has_many` **and**
+`has_many through` associations for models based on the below table
+(`Physician`, `Appointment`, and `Patient`)
+
+```ruby
 # == Schema Information
+#
+# Table name: physicians
+#
+#  id   :integer          not null, primary key
+#  name :string           not null
+
+
+# Table name: appointments
+#
+#  id   :integer           not null, primary key
+#  physician_id :integer   not null
+#  patient_id :integer     not null
+
+
+# Table name: patients
+#
+#  id   :integer           not null, primary key
+#  name :string            not null
+#  primary_physician_id :integer
+
+
+
+
+ == Schema Information
 #
 # Table name: users
 #
