@@ -189,3 +189,43 @@ select name
 from employ
 where employ.department_id is null
 BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+film where harison has started but not primary
+list alpha ord 15 star roles
+
+# Table name: actors
+#
+#  id          :integer      not null, primary key
+#  name        :string
+#
+# Table name: movies
+#
+#  id          :integer      not null, primary key
+#  title       :string
+#
+# Table name: castings
+#
+#  movie_id    :integer      not null, primary key
+#  actor_id    :integer      not null, primary key
+#  ord         :integer
+
+
+select movie.title
+from movie
+join 
+    casting On casting.movie_id = movie.id
+join 
+    actors on casting.actor_id = actor_id
+where 
+    actor.name='harison' and castings.ord != 1
+
+list alpha ord 15 star roles
+
+select actor.name
+from actor
+join 
+    casting On casting.actor_id = actor.id
+where casting.ord = 1
+group by actor.id
+having count(*)>15
+order by actor.name
